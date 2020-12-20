@@ -37,7 +37,7 @@ router.get("/entry/:id", async (req, res) => {
 
     const entry = entryData.get({ plain: true });
 
-    res.render("project", {
+    res.render("entry", {
       ...entry,
       logged_in: req.session.logged_in,
     });
