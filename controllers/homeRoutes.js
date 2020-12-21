@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
 router.get("/entry/:id", async (req, res) => {
   try {
     const entryData = await Entry.findByPk(req.params.id, {
-      unclude: [
+      include: [
         {
           model: User,
           attributes: ["name"],
@@ -47,14 +47,14 @@ router.get("/entry/:id", async (req, res) => {
 });
 
 router.get("/profile", withAuth, async (req, res) => {
+  console.log("req", req.session)
   try {
+    console.log("we made it here")
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [{ model: Entry }],
     });
-
     const user = userData.get({ plain: true });
-
     res.render("profile", {
       ...user,
       logged_in: true,

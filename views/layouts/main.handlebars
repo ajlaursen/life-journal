@@ -21,25 +21,26 @@
                 <ul class="navbar-nav">
                     {{#if logged_in}}
                     <li>
-                    <a class="nav-link" href="/profile">Profile</a>
+                        <a class="nav-link" href="/profile">Profile</a>
                     </li>
                     <li>
-                    <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" href="/logout">Logout</a>
                     </li>
                     {{else}}
                     <li>
-                    <a class="nav-link" href="/login">login</a>
+                        <a class="nav-link" id="logout" href="/login">login</a>
                     </li>
                     {{/if}}
                 </ul>
             </div>
         </nav>
     </div>
-    {{{body}}}
-
+    <main class="container container-fluid">
+        {{{body}}}
+    </main>
 
     {{#if logged_in}}
-    <script src="/public/js/logout.js"></script>
+    <script src="./js/logout.js"></script>
     {{/if}}
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -54,5 +55,3 @@
 </body>
 
 </html>
-
-

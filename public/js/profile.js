@@ -43,4 +43,4 @@ document
 
 document
   .querySelector(".entry-list")
-  .addEventListener("clivk", delButtonHandler);
+  .addEventListener("click", delButtonHandler);
