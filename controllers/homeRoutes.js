@@ -12,11 +12,11 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-
-    const entries = entryData.map((entry) => project.get({ plain: true }));
-
+    console.log("line 15", entryData)
+    const entries = entryData.map((entry) => entry.get({ plain: true }));
+    console.log("entries", entries)
     res.render("homepage", {
-      entries,
+      ...entries,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
