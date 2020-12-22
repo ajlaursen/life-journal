@@ -12,11 +12,11 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-    console.log("line 15", entryData)
+   
     const entries = entryData.map((entry) => entry.get({ plain: true }));
-    console.log("entries", entries)
+    
     res.render("homepage", {
-      ...entries,
+      entries,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -48,7 +48,6 @@ router.get("/entry/:id", async (req, res) => {
 
 router.get("/profile", withAuth, async (req, res) => {
   try {
-    console.log("we made it here")
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [{ model: Entry }],

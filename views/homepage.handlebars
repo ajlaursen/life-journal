@@ -1,1 +1,17 @@
-{{#each entries as |entry|}}
+
+
+  <ul class="entry-list">
+    {{#each entries as |entry|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <li>
+          <h4>{{entry.title}}</h4>
+          <h6>{{entry.user.name}}</h6>
+          <p>{{entry.body}}</p>
+      </div>
+
+    </div>
+    </li>
+</div>
+{{/each}}
+</ul>
