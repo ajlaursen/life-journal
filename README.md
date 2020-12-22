@@ -14,6 +14,8 @@
 
 ## Installation
 * npm i
+* npm start
+* in browser go to htts://localhost:3001
 
 ## Testing
 * No testing available
